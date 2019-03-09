@@ -1,0 +1,39 @@
+version: "3.6"
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: on-failure
+    networks:
+      - tki-net
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+      - 443:443
+
+  rstudio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rstudio
+    restart: on-failure
+    volumes:
+      - projects:/home/rstudio/projects
+      - r_libs:/usr/local/lib/R
+      - rstudio:/home/rstudio/.rstudio
+    networks:
+      - tki-net
+    environment:
+      - PASSWORD=rstudio1
+    expose:
+      - 8787
+
+networks:
+  tki-net:
+    name: tki-net
+
+volumes:
+  projects:
+  r_libs:
+  rstudio:

@@ -1,0 +1,10 @@
+Package: new_project
+Title: New project based on the current ProjectTemplate configuration
+Version: 1.0.0
+Authors@R: person("Author", "Author",
+    email = "Author.Author@telethonkids.org.au", role = c("aut", "cre"))
+Date: 2019-03-09
+Description: None.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true

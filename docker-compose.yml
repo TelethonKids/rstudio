@@ -19,9 +19,21 @@ services:
     container_name: rstudio
     restart: on-failure
     volumes:
-      - projects:/home/rstudio/projects
-      - r_libs:/usr/local/lib/R
-      - rstudio:/home/rstudio/.rstudio
+      - type: volume
+        source: rstudio
+        target: /home/rstudio
+        volume:
+          no-copy: true
+      - type: volume
+        source: projects
+        target: /home/rstudio/projects
+        volume:
+          no-copy: true
+      - type: volume
+        source: r_libs
+        target: /usr/local/lib/R
+        volume:
+          no-copy: true
     networks:
       - tki-net
     environment:

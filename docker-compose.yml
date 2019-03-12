@@ -13,9 +13,7 @@ services:
       - 443:443
 
   rstudio:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: rocker/tidyverse:3.5.2
     container_name: rstudio
     restart: on-failure
     volumes:
@@ -23,17 +21,15 @@ services:
         source: rstudio
         target: /home/rstudio
         volume:
-          no-copy: true
-      - type: volume
-        source: projects
+          nocopy: true
+      - type: bind
+        source: ./projects
         target: /home/rstudio/projects
-        volume:
-          no-copy: true
       - type: volume
         source: r_libs
         target: /usr/local/lib/R
         volume:
-          no-copy: true
+          nocopy: true
     networks:
       - tki-net
     environment:
@@ -46,6 +42,5 @@ networks:
     name: tki-net
 
 volumes:
-  projects:
   r_libs:
   rstudio:

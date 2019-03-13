@@ -16,4 +16,18 @@ that is useful for projects that conform to the principles of reproducible resea
 and "project-as-a-package".
 
 Default username: rstudio
+
 Default password: rstudio1
+
+### HTTPS encryption
+
+HTTPS encryption is enabled by default, which will requrie SSL
+certificates to be created. SSL certificates can be generated following
+these instructions by Let’s Encrypt <https://letsencrypt.org/>
+
+The `*.crt` and `*.key` should be put into the
+`nginx/certs/example.com/` directory; change “example.com” to what is
+relevant for your site.
+
+If HTTPS encription is not required then modifications can be made to
+`nginx.conf` where indicated.

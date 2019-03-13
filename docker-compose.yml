@@ -8,6 +8,7 @@ services:
       - tki-net
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/root/certs/
     ports:
       - 80:80
       - 443:443
@@ -21,7 +22,7 @@ services:
         source: rstudio
         target: /home/rstudio
         volume:
-          nocopy: true
+          no-copy: true
       - type: bind
         source: ./projects
         target: /home/rstudio/projects
@@ -29,7 +30,7 @@ services:
         source: r_libs
         target: /usr/local/lib/R
         volume:
-          nocopy: true
+          no-copy: true
     networks:
       - tki-net
     environment:

@@ -26,7 +26,7 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
   rstudio:
-    image: rocker/tidyverse:3.5.2
+    image: rocker/tidyverse:3.5.3
     container_name: rstudio
     restart: on-failure
     volumes:

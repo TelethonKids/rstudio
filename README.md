@@ -1,12 +1,16 @@
 RStudio
 ================
 
-Definition of a containerized RStudio instance from:
+A containerized RStudio instance from the rocker base image:
 
     rocker/tidyverse:3.5.2
 
-Container comes with a `nginx` reverse proxy (port 80 access on `localhost`)
+This container comes with a `nginx` reverse proxy (access via. port 80)
 and the Tidyverse collection of packages pre-installed by default.
+
+By default, the running container will be secured with SSL encryption via.
+Certbot. Some configuration will be required for the container to start, see
+below; however, instructions are provided in `nginx.conf` to remove this security.
 
 The `home/rstudio/projects`, `/usr/local/lib/R` and `/home/rstudio/.rstudio`
 directories are configured as Docker volumes.
@@ -48,13 +52,18 @@ Default password: rstudio1
 
 ## HTTPS encryption
 
-HTTPS encryption is enabled by default, which will requrie SSL
-certificates to be created. SSL certificates can be generated following
-these instructions by Let’s Encrypt <https://letsencrypt.org/>
+[These instructions](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+were used to set up a secure HTTPS connection to RStuido with Certbot SSL
+certificates. Also see [here](https://github.com/wmnnd/nginx-certbot).
 
-The `*.crt` and `*.key` should be put into the
-`nginx/certs/example.com/` directory; change “example.com” to what is
-relevant for your site.
+This will not work out of the box, the NGINX configuration file will need to be
+updated with your domain name (which is required) at the indicated places in
+`nginx.conf`. `init-letsencrypt.sh` also needs to be configured with your domain
+names(s) and email address.
 
-If HTTPS encription is not required then modifications can be made to
-`nginx.conf` where indicated.
+The following commands will need to be run on the host machine in order to obtain
+the first valid certificates: first run `chmod +x init-letsencrypt.sh` then
+`sudo ./init-letsencrypt.sh`.
+
+If HTTPS security is not wanted then you will need to remove the indicated chunks
+of code in `nginx.conf`.

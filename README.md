@@ -3,7 +3,7 @@ RStudio
 
 A containerized RStudio instance from the rocker base image:
 
-    rocker/tidyverse:3.5.2
+    rocker/tidyverse:3.5.3
 
 This container comes with a `nginx` reverse proxy (access via. port 80)
 and the Tidyverse collection of packages pre-installed by default.

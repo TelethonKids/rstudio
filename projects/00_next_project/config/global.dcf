@@ -1,4 +1,4 @@
-version: 0.8.2
+version: 0.9.0
 data_loading: TRUE
 data_loading_header: TRUE
 data_ignore:
@@ -9,8 +9,8 @@ logging: FALSE
 logging_level: INFO
 load_libraries: FALSE
 libraries: stats, reshape2, plyr, tidyverse
-as_factors: TRUE
-data_tables: FALSE
+as_factors: FALSE
 attach_internal_libraries: FALSE
-cache_loaded_data:  FALSE
+cache_loaded_data: FALSE
 sticky_variables: NONE
+tables_type: tibble

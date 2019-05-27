@@ -3,7 +3,7 @@ RStudio
 
 A containerized RStudio instance from the rocker base image:
 
-    rocker/tidyverse:3.5.3
+    rocker/tidyverse:3.6.0
 
 This container comes with a `nginx` reverse proxy (access via. port 80)
 and the Tidyverse collection of packages pre-installed by default.
@@ -19,11 +19,21 @@ The projects directory is pre-configured with a project template (00_next_projec
 that is useful for projects that conform to the principles of reproducible research
 and "project-as-a-package".
 
-### Default login
+### Suggested R Packages
+
+`install.packages(c("lubridate", "ProjectTemplate"))`
+
+### Default R Studio login
 
 username: rstudio
+password: rstudio1
 
-Default password: rstudio1
+Update password in `docker-compose.yml` at the following location:
+
+```
+environment:
+ - PASSWORD=rstudio1
+```
 
 ## Docker Ubuntu Server Installation/Set-up
 
@@ -53,7 +63,7 @@ Default password: rstudio1
 ## HTTPS encryption
 
 [These instructions](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
-were used to set up a secure HTTPS connection to RStuido with Certbot SSL
+were used to set up a secure HTTPS connection to RStudio with Certbot SSL
 certificates. Also see [here](https://github.com/wmnnd/nginx-certbot).
 
 This will not work out of the box, the NGINX configuration file will need to be

@@ -1,2 +1,14 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.standard.Rproj$
+^data-raw$
+^README.*$
+
+# Project directories #
+#######################
+^admin$
+^archive$
+^cache$
+^data-raw$
+^inst/doc$
+^figs$

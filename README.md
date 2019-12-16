@@ -3,7 +3,7 @@ RStudio
 
 A containerized RStudio instance from the rocker base image:
 
-    rocker/tidyverse:3.6.0
+    rocker/tidyverse:3.6.1
 
 This container comes with a `nginx` reverse proxy (access via. port 80)
 and the Tidyverse collection of packages pre-installed by default.
@@ -57,7 +57,7 @@ environment:
 1.  Change current directory to project folder `cd ...`
 2.  Start Docker containers
     3.  `docker-compose up -d`
-3.  App is ready on port 80: in browser, go to 192.168.99.100 (windows)
+3.  App is ready on port 80: in browser, go to 192.168.99.100 (Windows)
     or 127.17.0.1 (Ubuntu)
 
 ## HTTPS encryption

@@ -3,25 +3,22 @@ RStudio
 
 A containerized RStudio instance from the rocker base image:
 
-    rocker/tidyverse:3.6.1
+    rocker/rstudio:4.0.3
 
-This container comes with a `nginx` reverse proxy (access via. port 80)
-and the Tidyverse collection of packages pre-installed by default.
+This container orchestration  comes with a `nginx` reverse proxy
+(access via. port 80) and the Tidyverse collection of packages
+pre-installed by default.
 
-By default, the running container will be secured with SSL encryption via.
-Certbot. Some configuration will be required for the container to start, see
+By default, the running container will is not secured with SSL encryption.
+Some configuration will be required for the container to start, see
 below; however, instructions are provided in `nginx.conf` to remove this security.
 
-The `home/rstudio/projects`, `/usr/local/lib/R` and `/home/rstudio/.rstudio`
-directories are configured as Docker volumes.
+The `home/rstudio/projects`, `/usr/local/lib/R` and `/home/rstudio/`
+directories are pre-configured as Docker volumes.
 
 The projects directory is pre-configured with a project template (00_next_project)
 that is useful for projects that conform to the principles of reproducible research
 and "project-as-a-package".
-
-### Suggested R Packages
-
-`install.packages(c("lubridate", "ProjectTemplate"))`
 
 ### Default R Studio login
 
@@ -63,17 +60,16 @@ environment:
 ## HTTPS encryption
 
 [These instructions](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
-were used to set up a secure HTTPS connection to RStudio with Certbot SSL
+can be used to set up a secure HTTPS connection to RStudio with Certbot SSL
 certificates. Also see [here](https://github.com/wmnnd/nginx-certbot).
 
-This will not work out of the box, the NGINX configuration file will need to be
-updated with your domain name (which is required) at the indicated places in
-`nginx.conf`. `init-letsencrypt.sh` also needs to be configured with your domain
-names(s) and email address.
+SSL encription will not work out of the box, the NGINX configuration file will
+need to be updated with your domain name (which is required) at the indicated
+places in `nginx.conf`. `init-letsencrypt.sh` also needs to be configured with
+your domain names(s) and email address.
 
 The following commands will need to be run on the host machine in order to obtain
 the first valid certificates: first run `chmod +x init-letsencrypt.sh` then
 `sudo ./init-letsencrypt.sh`.
 
-If HTTPS security is not wanted then you will need to remove the indicated chunks
-of code in `nginx.conf`.
+See `nginx.conf` for more SSL configuration instructions.

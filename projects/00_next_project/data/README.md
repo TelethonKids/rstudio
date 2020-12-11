@@ -1,6 +1,9 @@
-# data
-Here you'll store your cleaned R data files (i.e. .Rdata, .RDS, etc.). Data in 
-this directory will be automatically loaded by `ProjectTemplate` with
-`load_project()`.
+data
+================
 
-By default, the data directory is monitored by git.
+Cleaned data files (i.e. .Rdata, .RDS, etc.).
+
+Data in this directory can be automatically loaded with
+`ProjectTemplate::load_project(data_loading == TRUE)`.
+
+By default, all project data is ignored by _.gitignore_.

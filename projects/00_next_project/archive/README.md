@@ -1,4 +1,5 @@
-# archive
-## custom directory
-Old files that are no longer requried can be kept here. By default, archive is 
-ignored by git.
+archive
+================
+
+Old files that are no longer specifically requried for analysis or reporting
+can be kept here to keep the main project directories tidy.

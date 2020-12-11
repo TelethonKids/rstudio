@@ -1,12 +1,11 @@
-# R
-R scripts will be stored in the R directory. By default 00-helper.R will contain
-helper functions that can be documented appropriately to produce help files.
-01-main.R will hold the main analysis code that shouldinclude the following lines
-of code, per 
-[ProjectTemplate documentation](http://projecttemplate.net/getting_started.html):
+R
+================
 
-    library('ProjectTemplate)
-    load.project()
+R scripts will be stored in the R directory.
 
-that will initiate the project environment per the configuration in
-*config/global.dcf*.
+By default:
+
+  - _00-cleaner.R_ - Code to import raw data, clean, and save for further work
+  - _01-main.R_ - Main analysis script/working area
+  - _99-helper.R_ - helper functions for use throughout the project
+  

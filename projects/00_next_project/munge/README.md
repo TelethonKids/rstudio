@@ -1,14 +1,17 @@
-# munge
-## ProjectTemplate directory
+munge
+================
+
 Project processing scripts in the munge directory are automatically executed 
-by `load.project(munging = T)`.
+by `ProjectTemplate::load.project(munging = TRUE)`.
 
-Scripts in the munge directory are excecuted sequentially; if order is important 
-then the files should be numbered, for example:
+Scripts in the munge directory are executed sequentially; script files should
+be numbered.
 
-    01_script1.R
-    02_script2.R
-    03_script3.R
+Default munge files are:
 
-At the end of the script, use `cache("varaible_name")` to store the result in 
-the *cache* directory.
+  - _01-munge.R_ - Data wrangling processes including applying calculations and
+  joining data from different sources
+  - _02-models.R_ - R code for performing statistical analysis
+
+`ProjectTemplate::cache("var_name")` would be used to store the resulting data
+in the _cache_ directory.

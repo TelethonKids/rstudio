@@ -12,3 +12,5 @@
 ^data-raw$
 ^inst/doc$
 ^figs$
+^word$
+^reports$

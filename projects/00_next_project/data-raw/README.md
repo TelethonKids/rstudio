@@ -1,12 +1,10 @@
-# data-raw
-It is suggested that raw data (e.g. txt, csv, sta, etc.) is stored in this 
-directory. The purpose of `01-cleaner.R` is to read in the raw data and perform 
-cleaning operations (such as varibale format conversion, converting " " to NA, 
-...) and save the cleaned data in the data directory with:
+data-raw
+================
 
-    devtools::use_data()
+Raw data (e.g. .xlsx, .csv, .sta, ...) files should be placed in this directory.
 
-Data processing/analysis should not be performed by this script.
+Data in this directory should be **read only**.
 
-By default, raw data is ignored by git as there should be no changes to the raw 
-data files.
+By default, all project data is ignored by _.gitignore_. No changes to raw 
+data files should be made, with any modification made by R script with updates
+saved elsewhere (i.e. the _data_ or _cache_ directories).

@@ -1,5 +1,3 @@
-# default list from github gist: https://gist.github.com/octocat/9257657
-
 # Compiled source #
 ###################
 *.com
@@ -47,8 +45,7 @@ Thumbs.db
 
 # Project directories #
 #######################
-/admin/
-/archive/
 /cache/
+/data/
 /data-raw/
-/inst/doc/
+/figs/

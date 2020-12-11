@@ -1,3 +1,3 @@
-# New project
+# PROJECT NAME
 
-* Initial release
+* YYYY-MM-DD v1.0.0 Initial release

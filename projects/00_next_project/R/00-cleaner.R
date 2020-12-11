@@ -1,12 +1,14 @@
-#' Reads raw delimited data and saves as RDS files in data folder
-#' created 25-May-2018 by Paul Stevenson
-#' updated 27-May-2019 by Paul Stevenson
+#' R/00-cleaner.R
+#' 
+#' Script to read in "raw-data", perform preliminary data cleaning/harmonisation
+#' steps and save in the "data" folder for munging.
+#' 
+#' Updated 11-Dec-2020 by Paul Stevenson
+#' 
 
-#### libraries ----
+#### Project automation with ProjectTemplate ----
 
-library(dplyr)
-library(readr)
-library(readstata13)
+ProjectTemplate::load.project(munging = FALSE, cache_loading = FALSE, data_loading = FALSE)
 
 #### helper functions ----
 
@@ -14,11 +16,12 @@ source("R/99-helper.R")
 
 #### load data ----
 
-dat <- read_csv("data-raw/file.csv")
+dat_raw <- read_xlsx("data-raw/file.xlsx", sheet = "Sheet1", range = "A1:B2", col_types = c("text"))
+# dat_raw <- read_csv(file = "data-raw/file.csv", col_types = cols(.default = "c"))
 
 #### Data cleaning ----
 
 
 #### save data ----
 
-save(dat, file = "data/dat.RData")
+save(dat_raw, file = "data/dat.RData")
